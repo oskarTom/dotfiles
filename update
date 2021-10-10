@@ -1,0 +1,15 @@
+#!/bin/bash
+
+THIS=`dirname "$BASH_SOURCE"`
+
+if [ $HOME/.vimrc -nt $THIS/.vimrc ]; then
+  cp -iv $HOME/.vimrc $THIS/.vimrc
+else
+  echo "Couldn't copy .vimrc"
+fi
+
+if [ $HOME/.bashrc -nt $THIS/.bashrc ]; then
+  cp -iv $HOME/.bashrc $THIS/.bashrc
+else
+  echo "Couldn't copy .bashrc"
+fi
