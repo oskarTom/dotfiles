@@ -38,6 +38,7 @@ if has("autocmd")
 		autocmd BufNewFile *.c 0r ~/Templates/C/default.c
 		autocmd BufNewFile *.py 0r ~/Templates/Python/default.py
 		autocmd BufNewFile answers.tex 0r ~/Templates/LaTeX/answers.tex
+		autocmd BufNewFile notes.tex 0r ~/Templates/LaTeX/notes.tex
 	augroup END
 endif
 
@@ -48,7 +49,7 @@ endif
 call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'joshdick/onedark.vim'
-"	Plug 'tpope/vim-fugitive'
+""	Plug 'tpope/vim-fugitive'
   Plug 'raimondi/delimitmate'
 	Plug 'scrooloose/syntastic'
 "	Plug 'valloric/youcompleteme'
