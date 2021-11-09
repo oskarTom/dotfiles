@@ -8,18 +8,7 @@
 </ul>
 I'll finish this list later...
 
-#### Emojis
-Added following to fontconfig for emoji support (After installing noto emoji font)
-~~~
-<fontconfig>
-  <match>
-    <test name="family"><string>[FONT OF CHOISE]</string></test>
-    <edit name="family" mode="prepend" binding="strong">
-      <string>Noto Color Emoji</string>
-    </edit>
-  </match>
-</fontconfig>
-~~~
+
 #### GRUB
 https://github.com/vinceliuice/grub2-themes
 
