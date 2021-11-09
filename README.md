@@ -1,5 +1,13 @@
 # My linux configurations
 
+### To install
+<ul>
+  <li> i3 + i3gaps </li>
+  <li> Polybar </li>
+  <li> PDF viewer:  </li>
+</ul>
+I'll finish this list later...
+
 #### Emojis
 Added following to fontconfig for emoji support (After installing noto emoji font)
 ~~~
