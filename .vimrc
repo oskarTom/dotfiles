@@ -48,14 +48,16 @@ endif
 "
 call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
+  Plug 'ap/vim-css-color'
   Plug 'joshdick/onedark.vim'
+  Plug 'sheerun/vim-polyglot'
 ""	Plug 'tpope/vim-fugitive'
   Plug 'raimondi/delimitmate'
 	Plug 'scrooloose/syntastic'
 "	Plug 'valloric/youcompleteme'
   Plug 'vim-airline/vim-airline'
-  Plug 'conornewton/vim-latex-preview'
-"  Plug 'xuhdev/vim-latex-live-preview'
+""  Plug 'conornewton/vim-latex-preview'
+  Plug 'xuhdev/vim-latex-live-preview'
 call plug#end()
 
 
@@ -67,6 +69,7 @@ let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:latex_pdf_viewer= 'mupdf'
+let g:livepreview_previewer = 'zathura'
 colorscheme onedark
 
 " Only do this part when Vim was compiled with the +eval feature.

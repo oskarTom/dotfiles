@@ -10,7 +10,7 @@
 # Show user privlige by emoji
 if groups | grep -q '\broot\b'; then
   AT="💥"
-elif groups | grep -q '\bsudo\b'; then
+elif groups | grep -q '\bwheel\b'; then
   AT="🔥"
 else
   AT="▶️"
@@ -19,10 +19,14 @@ fi
 # You may uncomment the following lines if you want `ls' to be colorized:
 export LS_OPTIONS='--color=auto'
 eval "`dircolors`"
-
 alias ls='ls $LS_OPTIONS'
 alias ll='ls $LS_OPTIONS -l'
 alias l='ls $LS_OPTIONS -lA'
+
+EDITOR="vim"
+alias vimrc='$EDITOR $HOME/.vimrc'
+alias bashrc='$EDITOR $HOME/.bashrc'
+alias dfu='$HOME/dotfiles/update'
 
 # MY CONFIGS:
 white=$(tput setaf 255);
@@ -43,5 +47,10 @@ PS1+="\[${reset}${bold}\]> ";	#reset
 PS1+="\[${reset}\]";
 
 export PS1;
-export EDITOR="vim"
+export EDITOR;
 #export PATH="$HOME/.vim/plugged/vim-live-latex-preview/bin:$PATH"
+
+#powerline-daemon -q
+#POWERLINE_BASH_CONTINUATION=1
+#POWERLINE_BASH_SELECT=1
+#. /usr/share/powerline/bindings/bash/powerline.sh
