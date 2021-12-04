@@ -22,19 +22,24 @@ set smarttab
 set splitbelow				"Preview window to the bottom
 set undodir=~/.vim/undodir
 set undofile
+set wildmenu
 
 "
-"	REMAPPING
+"	  REMAPPING
 "
-
-inoremap <C-s> <Esc>:w<CR>
-"inoremap <C-M> <CR><Esc>kA
-
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+map <C-s> <Esc>:w<CR>
+map! <C-s> <Esc>:w<CR>
+ 
 "
-"	SKELETON TEMPLATES
+"	TEMPLATES
 "	
 if has("autocmd")
 	augroup templates
+		autocmd BufNewFile *.sh 0r ~/Templates/Bash/default.sh
 		autocmd BufNewFile *.c 0r ~/Templates/C/default.c
 		autocmd BufNewFile *.py 0r ~/Templates/Python/default.py
 		autocmd BufNewFile answers.tex 0r ~/Templates/LaTeX/answers.tex
@@ -54,12 +59,11 @@ call plug#begin('~/.vim/plugged')
 ""	Plug 'tpope/vim-fugitive'
   Plug 'raimondi/delimitmate'
 	Plug 'scrooloose/syntastic'
-"	Plug 'valloric/youcompleteme'
+	Plug 'valloric/youcompleteme'
   Plug 'vim-airline/vim-airline'
-""  Plug 'conornewton/vim-latex-preview'
   Plug 'xuhdev/vim-latex-live-preview'
+""  Plug 'rip-rip/clang_complete'
 call plug#end()
-
 
 "
 "	CONFIGURATIONS
@@ -68,8 +72,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#branch#enabled = 1
-let g:latex_pdf_viewer= 'mupdf'
 let g:livepreview_previewer = 'zathura'
+let g:ycm_clangd_binary_path = '/usr/bin/clangd'
 colorscheme onedark
 
 " Only do this part when Vim was compiled with the +eval feature.

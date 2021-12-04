@@ -23,7 +23,9 @@ alias ls='ls $LS_OPTIONS'
 alias ll='ls $LS_OPTIONS -l'
 alias l='ls $LS_OPTIONS -lA'
 
-EDITOR="vim"
+TERMINAL='termite'
+EDITOR='vim'
+HISTCONTROL=ignoreboth:erasedups
 alias vimrc='$EDITOR $HOME/.vimrc'
 alias bashrc='$EDITOR $HOME/.bashrc'
 alias dfu='$HOME/dotfiles/update'
@@ -47,7 +49,9 @@ PS1+="\[${reset}${bold}\]> ";	#reset
 PS1+="\[${reset}\]";
 
 export PS1;
+export TERMINAL;
 export EDITOR;
+export HISTCONTROL;
 #export PATH="$HOME/.vim/plugged/vim-live-latex-preview/bin:$PATH"
 
 #powerline-daemon -q
