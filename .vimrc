@@ -4,11 +4,13 @@
 "  \_/|_|_|_|_|_| \__|
 "
 
+filetype off
+filetype plugin on
 syntax on
 
-set softtabstop=2
-set expandtab
 set autoindent
+set expandtab
+set softtabstop=2
 
 set ts=2 sw=2
 set incsearch
@@ -33,7 +35,7 @@ inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 map <C-s> <Esc>:w<CR>
 map! <C-s> <Esc>:w<CR>
- 
+
 "
 "	TEMPLATES
 "	
@@ -73,6 +75,7 @@ let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:livepreview_previewer = 'zathura'
+let g:tex_flavor = 'latex'
 let g:ycm_clangd_binary_path = '/usr/bin/clangd'
 colorscheme onedark
 
