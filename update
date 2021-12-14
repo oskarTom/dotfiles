@@ -3,21 +3,24 @@
 THIS=`dirname "$BASH_SOURCE"`
 updated=false
 
-if [ $HOME/.vimrc -nt $THIS/.vimrc ]; then
-  cp -iv $HOME/.vimrc $THIS/.vimrc
-  updated=true
-else
-  echo "Couldn't copy .vimrc"
-fi
-
-if [ $HOME/.bashrc -nt $THIS/.bashrc ]; then
-  cp -iv $HOME/.bashrc $THIS/.bashrc
-  updated=true
-else
-  echo "Couldn't copy .bashrc"
-fi
+#if [ $HOME/.vimrc -nt $THIS/.vimrc ]; then
+#  cp -iv $HOME/.vimrc $THIS/.vimrc
+#  updated=true
+#else
+#  echo "Couldn't copy .vimrc"
+#fi
+#
+#if [ $HOME/.bashrc -nt $THIS/.bashrc ]; then
+#  cp -iv $HOME/.bashrc $THIS/.bashrc
+#  updated=true
+#else
+#  echo "Couldn't copy .bashrc"
+#fi
 
 if $updated ; then
-  git commit -am "Update"
+  git add $THIS/.vimrc
+  git add $THIS/.bashrc
+  git add $THIS/Templates/*
+  git commit -m "Update"
   git push
 fi

@@ -11,7 +11,7 @@
 if groups | grep -q '\broot\b'; then
   AT="💥"
 elif groups | grep -q '\bwheel\b'; then
-  AT="ok" #"🔥"
+  AT=">" #"🔥"
 else
   AT="▶️"
 fi
