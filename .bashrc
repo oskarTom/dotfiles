@@ -11,7 +11,7 @@
 if groups | grep -q '\broot\b'; then
   AT="💥"
 elif groups | grep -q '\bwheel\b'; then
-  AT=">" #"🔥"
+  AT="🔥"
 else
   AT="▶️"
 fi
@@ -40,15 +40,18 @@ blue=$(tput setaf 141);
 bold=$(tput bold);
 reset=$(tput sgr0);
 
-PS1="\[\033[1;30m\][\t] ";	#Time
-PS1+="\[${white}\]\u";		#User
+#PS1="\[\033[1;30m\][\t] ";	#Time
+PS1="\[\033[1;30m\]${white}\] \u";		#User
 PS1+=" $AT ";				#@
 PS1+="\[${beige}\]\h";		#Host
 PS1+="\[\033[01;34m\] \w ";		#Directory
 PS1+="\[${reset}${bold}\]> ";	#reset
 PS1+="\[${reset}\]";
 
+PS4="\[${bold}${blue} + ${reset}\]"
+
 export PS1;
+export PS4;
 export TERMINAL;
 export EDITOR;
 export HISTCONTROL;

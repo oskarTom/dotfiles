@@ -9,6 +9,7 @@ filetype plugin on
 syntax on
 
 set autoindent
+set conceallevel=1  " For LaTeX concealing
 set expandtab
 set softtabstop=2
 
@@ -25,6 +26,11 @@ set splitbelow				"Preview window to the bottom
 set undodir=~/.vim/undodir
 set undofile
 set wildmenu
+
+" Spellchecker
+setlocal spell
+set spelllang=en_gb
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 "
 "	  REMAPPING
@@ -61,10 +67,12 @@ call plug#begin('~/.vim/plugged')
 ""	Plug 'tpope/vim-fugitive'
   Plug 'raimondi/delimitmate'
 	Plug 'scrooloose/syntastic'
-	Plug 'valloric/youcompleteme'
+""	Plug 'valloric/youcompleteme'
   Plug 'vim-airline/vim-airline'
   Plug 'xuhdev/vim-latex-live-preview'
+""  Plug 'lervag/vimtex'
 ""  Plug 'rip-rip/clang_complete'
+  Plug 'SirVer/ultisnips'
 call plug#end()
 
 "
@@ -75,8 +83,23 @@ let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:livepreview_previewer = 'zathura'
+let g:livepreview_cursorhold_recompile = 0
+"let g:vimtex_view_method='zathura'
+"let g:vimtex_quickfix_mode=0
+let g:tex_conceal='abdmg'
 let g:tex_flavor = 'latex'
 let g:ycm_clangd_binary_path = '/usr/bin/clangd'
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsListSnippets = "<c-tab>"
+
+let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/mysnippets"]
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 colorscheme onedark
 
 " Only do this part when Vim was compiled with the +eval feature.
