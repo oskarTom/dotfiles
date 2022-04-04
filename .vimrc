@@ -52,6 +52,7 @@ if has("autocmd")
 		autocmd BufNewFile *.py 0r ~/Templates/Python/default.py
 		autocmd BufNewFile answers.tex 0r ~/Templates/LaTeX/answers.tex
 		autocmd BufNewFile notes.tex 0r ~/Templates/LaTeX/notes.tex
+		autocmd BufNewFile *.html 0r ~/Templates/HTML/default.html
 	augroup END
 endif
 
@@ -67,12 +68,15 @@ call plug#begin('~/.vim/plugged')
 ""	Plug 'tpope/vim-fugitive'
   Plug 'raimondi/delimitmate'
 	Plug 'scrooloose/syntastic'
+  Plug 'scrooloose/nerdcommenter'
 ""	Plug 'valloric/youcompleteme'
   Plug 'vim-airline/vim-airline'
   Plug 'xuhdev/vim-latex-live-preview'
 ""  Plug 'lervag/vimtex'
 ""  Plug 'rip-rip/clang_complete'
+"  Plug 'tpope/vim-surround'           "https://github.com/tpope/vim-surround
   Plug 'SirVer/ultisnips'
+  Plug 'vim-scripts/AutoComplPop'
 call plug#end()
 
 "
