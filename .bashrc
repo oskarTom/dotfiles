@@ -20,8 +20,8 @@ fi
 export LS_OPTIONS='--color=auto'
 eval "`dircolors`"
 alias ls='ls $LS_OPTIONS'
-alias l='ls $LS_OPTIONS -l'
-alias ll='ls $LS_OPTIONS -lA'
+alias l='ls $LS_OPTIONS -lh'
+alias ll='ls $LS_OPTIONS -lhA'
 
 TERMINAL='termite'
 EDITOR='vim'
@@ -41,7 +41,7 @@ bold=$(tput bold);
 reset=$(tput sgr0);
 
 #PS1="\[\033[1;30m\][\t] ";	#Time
-PS1="\[\033[1;30m\]${white}\] \u";		#User
+PS1="\[\033[1;30m\][\t] ${white}\] \u";		#User
 PS1+=" $AT ";				#@
 PS1+="\[${beige}\]\h";		#Host
 PS1+="\[\033[01;34m\] \w ";		#Directory
