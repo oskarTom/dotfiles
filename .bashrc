@@ -41,7 +41,7 @@ bold=$(tput bold);
 reset=$(tput sgr0);
 
 #PS1="\[\033[1;30m\][\t] ";	#Time
-PS1="\[\033[1;30m\][\t] ${white}\] \u";		#User
+PS1="\[${bold}${white}\] \u";		#User
 PS1+=" $AT ";				#@
 PS1+="\[${beige}\]\h";		#Host
 PS1+="\[\033[01;34m\] \w ";		#Directory
