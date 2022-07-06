@@ -10,11 +10,13 @@
 # Show user privlige by emoji
 if groups | grep -q '\broot\b'; then
   AT="💥"
-elif groups | grep -q '\bwheel\b'; then
+elif groups | grep -q '\bwheel\|sudo\b'; then
   AT="🔥"
 else
   AT="▶️"
 fi
+
+stty -ixon # Disable Ctrl-S (XON/XOFF)
 
 # You may uncomment the following lines if you want `ls' to be colorized:
 export LS_OPTIONS='--color=auto'
@@ -23,11 +25,14 @@ alias ls='ls $LS_OPTIONS'
 alias l='ls $LS_OPTIONS -lh'
 alias ll='ls $LS_OPTIONS -lhA'
 
-TERMINAL='termite'
+TERMINAL='alacritty'
 EDITOR='vim'
 HISTCONTROL=ignoreboth:erasedups
+CMAKE_MAKE_PROGRAM='cmake'
+MOZ_ENABLE_WAYLAND=1
 alias vimrc='$EDITOR $HOME/.vimrc'
 alias bashrc='$EDITOR $HOME/.bashrc'
+alias swayconfig='$EDITOR $HOME/.config/sway/config'
 alias dfu='$HOME/dotfiles/update'
 
 # MY CONFIGS:
@@ -44,7 +49,7 @@ reset=$(tput sgr0);
 PS1="\[${bold}${white}\] \u";		#User
 PS1+=" $AT ";				#@
 PS1+="\[${beige}\]\h";		#Host
-PS1+="\[\033[01;34m\] \w ";		#Directory
+PS1+="\[${blue}\] \w ";		#Directory
 PS1+="\[${reset}${bold}\]> ";	#reset
 PS1+="\[${reset}\]";
 
@@ -55,6 +60,8 @@ export PS4;
 export TERMINAL;
 export EDITOR;
 export HISTCONTROL;
+export CMAKE_MAKE_PROGRAM;
+export MOZ_ENABLE_WAYLAND;
 #export PATH="$HOME/.vim/plugged/vim-live-latex-preview/bin:$PATH"
 
 #powerline-daemon -q

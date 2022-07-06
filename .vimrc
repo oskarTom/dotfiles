@@ -28,7 +28,7 @@ set undofile
 set wildmenu
 
 " Spellchecker
-setlocal spell
+"setlocal spell
 set spelllang=en_gb
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
@@ -71,7 +71,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdcommenter'
 ""	Plug 'valloric/youcompleteme'
   Plug 'vim-airline/vim-airline'
-  Plug 'xuhdev/vim-latex-live-preview'
+  Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 ""  Plug 'lervag/vimtex'
 ""  Plug 'rip-rip/clang_complete'
 "  Plug 'tpope/vim-surround'           "https://github.com/tpope/vim-surround
@@ -104,6 +104,7 @@ let g:UltiSnipsListSnippets = "<c-tab>"
 let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/mysnippets"]
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
 colorscheme onedark
 
 " Only do this part when Vim was compiled with the +eval feature.
