@@ -61,6 +61,7 @@ endif
 "	PLUGINS
 "
 call plug#begin('~/.vim/plugged')
+  Plug 'vim-scripts/AutoComplPop'
   Plug 'airblade/vim-gitgutter'
   Plug 'ap/vim-css-color'
   Plug 'joshdick/onedark.vim'
@@ -76,7 +77,7 @@ call plug#begin('~/.vim/plugged')
 ""  Plug 'rip-rip/clang_complete'
 "  Plug 'tpope/vim-surround'           "https://github.com/tpope/vim-surround
   Plug 'SirVer/ultisnips'
-  Plug 'vim-scripts/AutoComplPop'
+  Plug 'enomsg/vim-haskellconcealplus'
 call plug#end()
 
 "

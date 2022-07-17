@@ -32,6 +32,7 @@ CMAKE_MAKE_PROGRAM='cmake'
 MOZ_ENABLE_WAYLAND=1
 alias vimrc='$EDITOR $HOME/.vimrc'
 alias bashrc='$EDITOR $HOME/.bashrc'
+alias firefox='firefox'
 alias swayconfig='$EDITOR $HOME/.config/sway/config'
 alias dfu='$HOME/dotfiles/update'
 
