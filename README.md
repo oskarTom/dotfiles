@@ -1,11 +1,12 @@
 # My linux configurations
 
 ### To install
-<ul>
-  <li> i3 + i3gaps </li>
-  <li> Polybar </li>
-  <li> PDF viewer:  </li>
-</ul>
+- Wayland + sway
+- Waybar
+- Ranger
+  - [devicons](https://github.com/alexanderjeurissen/ranger_devicons)
+- PDF viewer:  Zathura
+
 I'll finish this list later...
 
 
