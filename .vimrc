@@ -13,6 +13,7 @@ set conceallevel=1  " For LaTeX concealing
 set expandtab
 set softtabstop=2
 
+set encoding=UTF-8
 set ts=2 sw=2
 set incsearch
 set nu
@@ -61,36 +62,37 @@ endif
 "	PLUGINS
 "
 call plug#begin('~/.vim/plugged')
-  Plug 'vim-scripts/AutoComplPop'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'ap/vim-css-color'
-  Plug 'joshdick/onedark.vim'
-  Plug 'sheerun/vim-polyglot'
 ""	Plug 'tpope/vim-fugitive'
-  Plug 'raimondi/delimitmate'
-	Plug 'scrooloose/syntastic'
-  Plug 'scrooloose/nerdcommenter'
 ""	Plug 'valloric/youcompleteme'
-  Plug 'vim-airline/vim-airline'
-  Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 ""  Plug 'lervag/vimtex'
 ""  Plug 'rip-rip/clang_complete'
 "  Plug 'tpope/vim-surround'           "https://github.com/tpope/vim-surround
+  Plug 'vim-scripts/AutoComplPop'
+  Plug 'airblade/vim-gitgutter'
+""  Plug 'ap/vim-css-color'
+  Plug 'lilydjwg/colorizer'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'raimondi/delimitmate'
+	Plug 'scrooloose/syntastic'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'vim-airline/vim-airline'
+  Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
   Plug 'SirVer/ultisnips'
-  Plug 'enomsg/vim-haskellconcealplus'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'joshdick/onedark.vim'
 call plug#end()
+colorscheme onedark
 
 "
 "	CONFIGURATIONS
 "
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:livepreview_previewer = 'zathura'
 let g:livepreview_cursorhold_recompile = 0
-"let g:vimtex_view_method='zathura'
-"let g:vimtex_quickfix_mode=0
 let g:tex_conceal='abdmg'
 let g:tex_flavor = 'latex'
 let g:ycm_clangd_binary_path = '/usr/bin/clangd'
@@ -106,7 +108,6 @@ let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/mysnippets"]
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-colorscheme onedark
 
 " Only do this part when Vim was compiled with the +eval feature.
 if 1
@@ -134,3 +135,6 @@ if 1
 
   augroup END
 endif
+
+set t_RV=
+let &t_ut=''

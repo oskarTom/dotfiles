@@ -16,7 +16,6 @@ else
   AT="▶️"
 fi
 
-stty -ixon # Disable Ctrl-S (XON/XOFF)
 
 # You may uncomment the following lines if you want `ls' to be colorized:
 export LS_OPTIONS='--color=auto'
@@ -32,7 +31,6 @@ CMAKE_MAKE_PROGRAM='cmake'
 MOZ_ENABLE_WAYLAND=1
 alias vimrc='$EDITOR $HOME/.vimrc'
 alias bashrc='$EDITOR $HOME/.bashrc'
-alias firefox='firefox'
 alias swayconfig='$EDITOR $HOME/.config/sway/config'
 alias dfu='$HOME/dotfiles/update'
 
@@ -46,7 +44,6 @@ blue=$(tput setaf 141);
 bold=$(tput bold);
 reset=$(tput sgr0);
 
-#PS1="\[\033[1;30m\][\t] ";	#Time
 PS1="\[${bold}${white}\] \u";		#User
 PS1+=" $AT ";				#@
 PS1+="\[${beige}\]\h";		#Host
