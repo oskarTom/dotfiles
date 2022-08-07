@@ -4,17 +4,13 @@ THIS=`dirname "$BASH_SOURCE"`
 
 if [ -f "$HOME/.vimrc" ]; then
   echo $THIS
-  cp -iv $THIS/.vimrc $HOME/.vimrc
+  ln -iv $THIS/.vimrc $HOME/.vimrc
   if ! [ -d "$HOME/.vim/undodir" ]; then
     mkdir -v $HOME/.vim/undodir
   fi
   if ! [ -d "$HOME/Templates" ]; then
-    cp -irv $THIS/Templates $HOME
+    ln -iv $THIS/Templates $HOME/Templates
   fi
-#elif [ $THIS/.vimrc -nt $HOME/.vimrc ]; then
-#  cp -iv $THIS/.vimrc $HOME/.vimrc
 else
-  echo "Couldn't copy .vimrc"
+  echo "Something went wrong"
 fi
-
-#cp -iv $HOME/myLinuxConfig/.bashrc $HOME/.bashrc
