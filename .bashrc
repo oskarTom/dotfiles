@@ -1,5 +1,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+stty -ixon # Disable Ctrl-S (XON/XOFF)
+
 
 #  _             _           
 # | |__  __ _ __| |_  _ _ __ 
@@ -24,14 +26,16 @@ alias ls='ls $LS_OPTIONS'
 alias l='ls $LS_OPTIONS -lh'
 alias ll='ls $LS_OPTIONS -lhA'
 
-TERMINAL='alacritty'
+TERMINAL='kitty'
 EDITOR='vim'
+FILEMANAGER='ranger'
 HISTCONTROL=ignoreboth:erasedups
 CMAKE_MAKE_PROGRAM='cmake'
 MOZ_ENABLE_WAYLAND=1
 alias vimrc='$EDITOR $HOME/.vimrc'
 alias bashrc='$EDITOR $HOME/.bashrc'
 alias swayconfig='$EDITOR $HOME/.config/sway/config'
+alias fm='$FILEMANAGER'
 alias dfu='$HOME/dotfiles/update'
 
 # MY CONFIGS:
@@ -60,6 +64,7 @@ export EDITOR;
 export HISTCONTROL;
 export CMAKE_MAKE_PROGRAM;
 export MOZ_ENABLE_WAYLAND;
+export PATH="$HOME/.emacs.d/bin:$PATH"
 #export PATH="$HOME/.vim/plugged/vim-live-latex-preview/bin:$PATH"
 
 #powerline-daemon -q
