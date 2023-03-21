@@ -20,11 +20,21 @@ snippet $ "Inline math" wA
 \$${1}\$$2
 endsnippet
 
-snippet '([A-Za-z])(\d)' "auto subscript" wrA
-`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+#snippet '([A-Za-z])(\d)' "auto subscript" wrA
+#`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+#endsnippet
+#snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+#`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+#endsnippet
+
+snippet ( "Parenthesis" w
+\\left($1\\right
 endsnippet
-snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
-`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+snippet { "Curly Brackets" w
+\\left{$1\\right
+endsnippet
+snippet [ "Square Brackets" w
+\\left[$1\\right
 endsnippet
 
 snippet // "Fraction" iA
