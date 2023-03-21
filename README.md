@@ -1,6 +1,6 @@
-# My linux configurations
+# DOTFILES
 
-### To install
+### Packages
 - Wayland + sway
 - Waybar
 - Ranger
@@ -42,7 +42,3 @@ Attributes must be specified before color and separated by ; :
 ~~~
 \[\033[ATTRIBUTE;COLORm\]
 ~~~
-
-#### Todo
-`mlc` command to modify and update rc files
-# dotfiles
