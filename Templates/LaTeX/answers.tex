@@ -9,6 +9,18 @@
 \usepackage{physics}
 \usepackage{titlesec}
 \usepackage{tikz-feynman}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[2][1]{%
+  \def\svgwidth{#1\columnwidth}
+  \import{./figures/}{#2.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
+
 \geometry{a4paper, total={170mm,257mm}, left=20mm, top=20mm,}
 \newcommand{\dbar}{\dd\hspace*{-0.18em}\bar{}\hspace*{0.1em}}
 
@@ -36,6 +48,5 @@
 
 
 \begin{document}
-\section{Problem 1.}
-
+\section{Problem 1}
 \end{document}

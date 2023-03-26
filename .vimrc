@@ -6,7 +6,7 @@
 
 filetype off
 filetype plugin on
-syntax on
+syntax enable
 
 set autoindent
 set conceallevel=1  " For LaTeX concealing
@@ -42,6 +42,8 @@ inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 map <C-s> <Esc>:w<CR>
 map! <C-s> <Esc>:w<CR>
+inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
 "
 "	TEMPLATES
@@ -64,7 +66,7 @@ endif
 call plug#begin('~/.vim/plugged')
 ""	Plug 'tpope/vim-fugitive'
 ""	Plug 'valloric/youcompleteme'
-""  Plug 'lervag/vimtex'
+  Plug 'lervag/vimtex'
 ""  Plug 'rip-rip/clang_complete'
 "  Plug 'tpope/vim-surround'           "https://github.com/tpope/vim-surround
   Plug 'vim-scripts/AutoComplPop'
@@ -93,6 +95,7 @@ let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:livepreview_previewer = 'zathura'
 let g:livepreview_cursorhold_recompile = 0
+"let g:livepreview_engine = 'lualatex' 
 let g:tex_conceal='abdmg'
 let g:tex_flavor = 'latex'
 let g:ycm_clangd_binary_path = '/usr/bin/clangd'
@@ -107,6 +110,9 @@ let g:UltiSnipsListSnippets = "<c-tab>"
 let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/mysnippets"]
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+let g:vimtex_view_method = 'zathura'
+let maplocalleader = ","
+let mapleader = ","
 
 
 " Only do this part when Vim was compiled with the +eval feature.
