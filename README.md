@@ -12,7 +12,8 @@ I'll finish this list later...
 
 #### GRUB
 https://github.com/vinceliuice/grub2-themes
-
+sudo plymouth-set-default-theme -R details
+sudo ./install.sh -b -t vimix -i white -s 2k
 
 ## .vimrc
 ### Additional plugins

@@ -25,6 +25,7 @@ eval "`dircolors`"
 alias ls='ls $LS_OPTIONS'
 alias l='ls $LS_OPTIONS -lh'
 alias ll='ls $LS_OPTIONS -lhA'
+alias df='df -h'
 
 TERMINAL='kitty'
 EDITOR='vim'
@@ -36,7 +37,7 @@ alias vimrc='$EDITOR $HOME/.vimrc'
 alias bashrc='$EDITOR $HOME/.bashrc'
 alias swayconfig='$EDITOR $HOME/.config/sway/config'
 alias fm='$FILEMANAGER'
-alias dfu='$HOME/dotfiles/update'
+# alias dfu='$HOME/dotfiles/update'
 
 # MY CONFIGS:
 white=$(tput setaf 255);
@@ -65,9 +66,14 @@ export HISTCONTROL;
 export CMAKE_MAKE_PROGRAM;
 export MOZ_ENABLE_WAYLAND;
 export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="/home/tom/.local/bin:$PATH"
 #export PATH="$HOME/.vim/plugged/vim-live-latex-preview/bin:$PATH"
 
 #powerline-daemon -q
 #POWERLINE_BASH_CONTINUATION=1
 #POWERLINE_BASH_SELECT=1
 #. /usr/share/powerline/bindings/bash/powerline.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
