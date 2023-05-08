@@ -49,16 +49,20 @@ blue=$(tput setaf 141);
 bold=$(tput bold);
 reset=$(tput sgr0);
 
+source /usr/share/git/git-prompt.sh
 PS1="\[${bold}${white}\] \u";		#User
 PS1+=" $AT ";				#@
 PS1+="\[${beige}\]\h";		#Host
 PS1+="\[${blue}\] \w ";		#Directory
-PS1+="\[${reset}${bold}\]> ";	#reset
+PS1+="\[${reset}${bold}\]";	#reset
+PS1+='$(__git_ps1 "(%s)") ';
+PS1+="> "
 PS1+="\[${reset}\]";
 
 PS4="\[${bold}${blue} + ${reset}\]"
 
 export PS1;
+export GIT_PS1_SHOWDIRTYSTATE=1
 export PS4;
 export TERMINAL;
 export EDITOR;
