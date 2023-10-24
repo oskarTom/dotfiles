@@ -29,7 +29,7 @@ set undofile
 set wildmenu
 
 " Spellchecker
-setlocal spell
+"setlocal spell
 set spelllang=en_gb
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
@@ -54,6 +54,7 @@ if has("autocmd")
 	augroup templates
 		autocmd BufNewFile *.sh 0r ~/Templates/Bash/default.sh
 		autocmd BufNewFile *.c 0r ~/Templates/C/default.c
+		autocmd BufNewFile *.cpp 0r ~/Templates/C++/default.cpp
 		autocmd BufNewFile *.py 0r ~/Templates/Python/default.py
 		autocmd BufNewFile answers.tex 0r ~/Templates/LaTeX/answers.tex
 		autocmd BufNewFile notes.tex 0r ~/Templates/LaTeX/notes.tex
