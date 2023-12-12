@@ -37,6 +37,7 @@ alias vimrc='$EDITOR $HOME/.vimrc'
 alias bashrc='$EDITOR $HOME/.bashrc'
 alias swayconfig='$EDITOR $HOME/.config/sway/config'
 alias fm='$FILEMANAGER'
+alias code='code --ozone-platform-hint=auto'
 # alias dfu='$HOME/dotfiles/update'
 
 # MY CONFIGS:
