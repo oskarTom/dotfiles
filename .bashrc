@@ -10,21 +10,25 @@ stty -ixon # Disable Ctrl-S (XON/XOFF)
 #                            
 
 # Show user privlige by emoji
-if groups | grep -q '\broot\b'; then
-  AT="💥"
-elif groups | grep -q '\bwheel\|sudo\b'; then
-  AT="🔥"
-else
-  AT="▶️"
-fi
-
+function is_sudoing() {
+  if groups | grep -q '\broot\b'; then
+    AT="💥"
+  elif sudo -n true 2>/dev/null; then
+    AT="🔥"
+  elif groups | grep -q '\bwheel\|sudo\b'; then
+    AT=">"
+  else
+    AT="▶️"
+  fi
+  echo "$AT"
+}
 
 # You may uncomment the following lines if you want `ls' to be colorized:
 export LS_OPTIONS='--color=auto'
 eval "`dircolors`"
 alias ls='ls $LS_OPTIONS'
-alias l='ls $LS_OPTIONS -lh'
-alias ll='ls $LS_OPTIONS -lhA'
+alias l='ls $LS_OPTIONS -lhX'
+alias ll='ls $LS_OPTIONS -lhXA'
 alias df='df -h'
 
 TERMINAL='kitty'
@@ -52,7 +56,7 @@ reset=$(tput sgr0);
 
 source /usr/share/git/git-prompt.sh
 PS1="\[${bold}${white}\] \u";		#User
-PS1+=" $AT ";				#@
+PS1="$PS1"' `is_sudoing` '
 PS1+="\[${beige}\]\h";		#Host
 PS1+="\[${blue}\] \w ";		#Directory
 PS1+="\[${reset}${bold}\]";	#reset
