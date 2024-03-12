@@ -9,6 +9,7 @@ filetype plugin on
 syntax enable
 
 set autoindent
+set belloff=all
 set conceallevel=1  " For LaTeX concealing
 set expandtab
 set softtabstop=2
@@ -29,13 +30,15 @@ set undofile
 set wildmenu
 
 " Spellchecker
-"setlocal spell
 set spelllang=en_gb
+"set complete+=kspell
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 "
 "	  REMAPPING
 "
+nnoremap <C-e> :NERDTreeToggle<CR>
+nnoremap <Tab> :bn<CR>
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
@@ -51,6 +54,11 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
 "	TEMPLATES
 "	
 if has("autocmd")
+  augroup spell
+    autocmd FileType markdown setlocal spell
+    autocmd FileType mdx setlocal spell
+    autocmd FileType tex setlocal spell
+	augroup END
 	augroup templates
 		autocmd BufNewFile *.sh 0r ~/Templates/Bash/default.sh
 		autocmd BufNewFile *.c 0r ~/Templates/C/default.c
@@ -69,12 +77,13 @@ endif
 call plug#begin('~/.vim/plugged')
 ""	Plug 'tpope/vim-fugitive'
 ""	Plug 'valloric/youcompleteme'
+""  Plug 'shougo/neocomplete.vim'
   Plug 'lervag/vimtex'
 ""  Plug 'rip-rip/clang_complete'
 "  Plug 'tpope/vim-surround'           "https://github.com/tpope/vim-surround
 ""  Plug 'vim-scripts/AutoComplPop'
+  Plug 'scrooloose/nerdtree'
   Plug 'airblade/vim-gitgutter'
-""  Plug 'ap/vim-css-color'
   Plug 'lilydjwg/colorizer'
   Plug 'sheerun/vim-polyglot'
   Plug 'raimondi/delimitmate'
@@ -86,6 +95,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'SirVer/ultisnips'
   Plug 'ryanoasis/vim-devicons'
   Plug 'joshdick/onedark.vim'
+  Plug 'neoclide/coc.nvim'
 call plug#end()
 colorscheme onedark
 
@@ -110,7 +120,6 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsListSnippets = "<c-tab>"
-
 let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/mysnippets"]
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -118,6 +127,8 @@ let g:vimtex_view_method = 'zathura'
 let maplocalleader = ","
 let mapleader = ","
 
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
 
 " Only do this part when Vim was compiled with the +eval feature.
 if 1
